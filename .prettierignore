@@ -1,0 +1,4 @@
+/.next
+yarn.lock
+yarn-error.log
+*.json
