@@ -46,7 +46,6 @@ export default function Home() {
          <FilterController
             keyword="categories"
             values={categories}
-            isMulti
             render={({ onChange }) => {
                return (
                   <div>

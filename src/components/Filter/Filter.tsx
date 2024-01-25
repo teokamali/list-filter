@@ -5,7 +5,7 @@ import { useFilterHelper } from "./Filter.helper"
 import { FilterControllerProps } from "./Filter.type"
 
 export const FilterController = (props: FilterControllerProps) => {
-   const { keyword, render, values, isMulti = false } = props
+   const { keyword, render, values } = props
    const RouterSearchParams = useSearchParams()
 
    const selectedValues = RouterSearchParams.getAll(keyword) ? RouterSearchParams.getAll(keyword) : []
@@ -17,7 +17,7 @@ export const FilterController = (props: FilterControllerProps) => {
       if (!selectedFilter) {
          return
       }
-      filterHandler(selectedFilter, isMulti)
+      filterHandler(selectedFilter)
    }
 
    return (

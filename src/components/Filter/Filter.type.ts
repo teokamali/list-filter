@@ -9,7 +9,7 @@ export interface FilterHelperHook {
 }
 
 export interface FilterHelperHookReturn {
-   filterHandler: (filter: Filter, isMulti: boolean) => void
+   filterHandler: (filter: Filter) => void
 }
 
 export interface RenderProps {
@@ -19,6 +19,6 @@ export interface RenderProps {
 export interface FilterControllerProps {
    keyword: string
    values: Filter[]
-   isMulti?: boolean
+
    render: (renderProps: RenderProps) => React.ReactNode
 }

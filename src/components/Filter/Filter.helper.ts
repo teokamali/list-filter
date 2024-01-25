@@ -8,23 +8,13 @@ export const useFilterHelper = (params: FilterHelperHook): FilterHelperHookRetur
    const pathname = usePathname()
    const searchParams = new URLSearchParams(RouterSearchParams)
 
-   const filterHandler = (filter: Filter, isMulti: boolean) => {
-      if (isMulti) {
-         if (selectedValues && selectedValues.includes(filter.value, 0)) {
-            searchParams.delete(keyword, filter.value)
-            router.push(`${pathname}?${searchParams.toString()}`)
-         } else {
-            searchParams.append(keyword, filter.value)
-            router.push(`${pathname}?${searchParams.toString()}`)
-         }
+   const filterHandler = (filter: Filter) => {
+      if (selectedValues && selectedValues.includes(filter.value, 0)) {
+         searchParams.delete(keyword, filter.value)
+         router.push(`${pathname}?${searchParams.toString()}`)
       } else {
-         if (selectedValues && selectedValues.includes(filter.value, 0)) {
-            searchParams.delete(keyword, filter.value)
-            router.push(`${pathname}?${searchParams.toString()}`)
-         } else {
-            searchParams.set(keyword, filter.value)
-            router.push(`${pathname}?${searchParams.toString()}`)
-         }
+         searchParams.append(keyword, filter.value)
+         router.push(`${pathname}?${searchParams.toString()}`)
       }
    }
    return {
